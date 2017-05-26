@@ -9,7 +9,6 @@ public class ButtonRef : MonoBehaviour {
 	public Button b;
 	public float delay;
 
-	private bool isclicked;
 
 	void Start () 
 	{
@@ -21,31 +20,36 @@ public class ButtonRef : MonoBehaviour {
 		
 	}
 
+
+	//Changes The Color Of The button Based On The Tag
 	public void ButtonClk()
 	{
 		
 		if ( gameObject.tag == "green")
-			{
+		{
 			b.image.color = Color.green;
-			if (!isclicked) 
-			{
-				isclicked = true;
-				StartCoroutine (Delay (delay));
-			}
-
 		}
 
 		if (gameObject.tag == "red") 
 		{
 			b.image.color = Color.red;
 		}
-
-	}
-
-	private IEnumerator Delay(float delay)
-	{
-		yield return new WaitForSeconds (delay);
 		mc.sel = true;
-		isclicked = false;
+
 	}
+
+//	private IEnumerator Delay(float delay)
+//	{
+//		yield return new WaitForSeconds (delay);
+//		//mc.sel = true;
+//		isclicked = false;
+//	}
+//
+////	void CorrectAnswers()
+////	{
+////		if (isclicked) 
+////		{
+////			isclicked = false;
+////		}
+////	}
 }
